@@ -11,14 +11,16 @@ def by_age_plot():
         delimiter=","
     )
 
-    # Initialize the app
+    # Initialize the appe
     app = Dash(__name__)
+
+    df = df.query('depressiveness == False or depression_diagnosis == True')
 
     df = df.groupby(["age", "depressiveness"]).size().reset_index(name="Count")
 
-    print(df.sum())
+    print(df)
 
-    fig = px.bar(df, x="age",y="Count" ,color="depressiveness", title="General depressiveness")
+    fig = px.bar(df, x="age",y="Count" ,color="depressiveness", title="General depressiveness and diagnosis")
 
     # App layout
     app.layout = html.Div([
@@ -27,7 +29,7 @@ def by_age_plot():
     ])
 
     if __name__ == '__main__':
-        app.run_server(debug=True, port="8080")
+        app.run_server(debug=True, port="8081")
 
 
 if __name__ == "__main__":
