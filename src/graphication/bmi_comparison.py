@@ -31,6 +31,7 @@ def by_age_plot():
     ])
 
     if __name__ == '__main__':
+        app.title = "Body mass index comparison"
         app.run_server(debug=True, port="8082")
 
 

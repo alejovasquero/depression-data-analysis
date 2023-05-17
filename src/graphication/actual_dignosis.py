@@ -18,8 +18,6 @@ def by_age_plot():
 
     df = df.groupby(["age", "depressiveness"]).size().reset_index(name="Count")
 
-    print(df)
-
     fig = px.bar(df, x="age",y="Count" ,color="depressiveness", title="General depressiveness and diagnosis")
 
     # App layout
@@ -29,6 +27,7 @@ def by_age_plot():
     ])
 
     if __name__ == '__main__':
+        app.title = "Depression diagnosis by age"
         app.run_server(debug=True, port="8081")
 
 

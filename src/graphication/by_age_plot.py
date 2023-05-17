@@ -16,17 +16,16 @@ def by_age_plot():
 
     df = df.groupby(["age", "depressiveness"]).size().reset_index(name="Count")
 
-    print(df.sum())
-
-    fig = px.bar(df, x="age",y="Count" ,color="depressiveness", title="General depressiveness")
+    fig = px.bar(df, x="age", y="Count", color="depressiveness", title="General depressiveness")
 
     # App layout
     app.layout = html.Div([
-        html.H1(children='Depression diagnosis by age'),
+        html.H1(children='Depression by age (not diagnosed)'),
         dcc.Graph(figure=fig, id="bar_plot"),
     ])
 
     if __name__ == '__main__':
+        app.title = "Depression by age"
         app.run_server(debug=True, port="8080")
 
 
