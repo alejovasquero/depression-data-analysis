@@ -9,8 +9,8 @@ class DataTest(unittest.TestCase):
         df = data_consumption.obtain_file_as_dataframe(
             file="test.csv",
             directory=".",
-            delimiter=";"
+            delimiter=","
         )
 
         self.assertIsNotNone(df)
-        self.assertEqual(2999, len(df))
+        self.assertEqual(783, len(df))
